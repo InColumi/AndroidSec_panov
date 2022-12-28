@@ -1,0 +1,49 @@
+{
+  "geofencing": [
+    {
+      "id": "enter",
+      "name": "A.  Вход на мехмат",
+      "hint": "Иди ко входу на мехмат",
+      "location": {
+        "latitude": 47.216916060575144,
+        "longitude": 39.628686010837555
+      }
+    },
+    {
+      "id": "corner",
+      "name": "C.  Угол мехмата",
+      "hint": "Иди к углу мехмата",
+      "location": {
+        "latitude": 47.21708,
+        "longitude": 39.62862
+      }
+    },
+    {
+      "id": "parking",
+      "name": "E.  Парковка",
+      "hint": "Иди к парковке",
+      "location": {
+        "latitude": 47.21678,
+        "longitude": 39.62797
+      }
+    },
+    {
+      "id": "bicycle",
+      "name": "I.  Велосипеды",
+      "hint": "Иди к парковке для велосипедов",
+      "location": {
+        "latitude": 47.21625,
+        "longitude": 39.62922
+      }
+    },
+    {
+      "id": "smoking",
+      "name": "J.  Курилка",
+      "hint": "Иди к курилке",
+      "location": {
+        "latitude": 47.21627,
+        "longitude": 39.62952
+      }
+    }
+  ]
+}
