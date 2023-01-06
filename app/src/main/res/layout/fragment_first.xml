@@ -5,12 +5,12 @@
     android:id="@+id/nestedScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstFragment"
+    tools:context=".ActionFragment"
     tools:ignore="SpeakableTextPresentCheck" >
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="400dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
@@ -18,8 +18,19 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.462">
+
+        <TextView
+            android:id="@+id/countStep"
+            android:layout_width="wrap_content"
+            android:layout_height="162dp"
+            android:layout_marginLeft="160dp"
+            android:text="@string/count"
+            android:textSize="132dp"
+            tools:text="0" />
 
         <TextView
             android:id="@+id/titleTV"
@@ -31,6 +42,19 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
+        <EditText
+            android:id="@+id/enterStepCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/inputHint"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:textAlignment="viewStart"
+            android:textColor="#000000"
+            android:textColorHint="#8D6E63" />
+
         <LinearLayout
             android:id="@+id/informCount"
             android:layout_width="match_parent"
@@ -38,50 +62,32 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/informTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/countTV" />
-
-            <TextView
-                android:id="@+id/countStep"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/count"
-                tools:text="0" />
-
-            <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/countBtn"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="#10CF18"
+                android:color="@color/green"
+                android:text="@string/countBtn"
+                android:layout_marginRight="190dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/enterStepCount" />
+
+            <Button
+                android:id="@+id/deleteBtn"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="#E31414"
+                android:text="@string/deleteCount"
+                app:layout_constraintStart_toEndOf="@+id/countBtn"
+                app:layout_constraintTop_toBottomOf="@+id/enterStepCount" />
+
         </LinearLayout>
-
-        <EditText
-            android:id="@+id/enterStepCount"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/inputHint"
-            android:inputType="number"
-            android:minHeight="48dp"
-            android:textAlignment="viewStart"
-            android:textColor="#000000"
-            android:textColorHint="#8D6E63"
-            android:autofillHints="" />
-
-        <Button
-            android:id="@+id/countBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/countBtn" />
-
-        <Button
-            android:id="@+id/deleteBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/deleteCount" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

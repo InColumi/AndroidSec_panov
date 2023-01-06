@@ -3,9 +3,19 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+def getCredential = { path ->
+    Properties properties = new Properties()
+    InputStream inputStream = project.rootProject.file("keys.properties").newDataInputStream()
+    properties.load(inputStream)
+    return properties.getProperty(path)
+}
+
 android {
     namespace 'com.example.laba_8_1'
     compileSdk 32
+    dataBinding {
+        enabled = true
+    }
 
     defaultConfig {
         applicationId "com.example.laba_8_1"
@@ -17,19 +27,41 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        debug {
+            keyAlias getCredential("KEY_ALIAS")
+            keyPassword getCredential("KEY_PASSWORD")
+            storeFile file('../key.jks')
+            storePassword getCredential("STORE_PASSWORD")
+        }
+        release {
+            keyAlias getCredential("KEY_ALIAS")
+            keyPassword getCredential("KEY_PASSWORD")
+            storeFile file('../key.jks')
+            storePassword getCredential("STORE_PASSWORD")
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            debuggable true
+            signingConfig signingConfigs.release
+        }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
     buildFeatures {
         viewBinding true
     }

@@ -9,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
 import com.example.laba_8_1.databinding.FragmentFirstBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.fitness.Fitness
@@ -24,7 +23,7 @@ import java.util.concurrent.TimeUnit
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class FirstFragment : Fragment() {
+class ActionFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
 
