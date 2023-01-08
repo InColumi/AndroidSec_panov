@@ -67,6 +67,7 @@ class ActionFragment : Fragment() {
             }
             binding.deleteBtn.setOnClickListener {
                 deleteCountSteps()
+                binding.countStep.setText("0")
             }
         }
     }
@@ -154,15 +155,22 @@ class ActionFragment : Fragment() {
             Toast.makeText(requireContext(), "Введите количество шагов!", Toast.LENGTH_LONG).show()
             return
         }
-        val dataPoint =
-            DataPoint.builder(dataSource)
-                .setField(Field.FIELD_STEPS, stepCountDelta.toInt())
-                .setTimeInterval(startTime.toEpochSecond(), endTime.toEpochSecond(), TimeUnit.SECONDS)
-                .build()
 
-        val dataSet = DataSet.builder(dataSource)
-            .add(dataPoint)
-            .build()
+        var dataPoint: DataPoint? = null
+        var dataSet: DataSet? = null
+        try {
+            dataPoint =
+                DataPoint.builder(dataSource)
+                    .setField(Field.FIELD_STEPS, stepCountDelta.toInt())
+                    .setTimeInterval(startTime.toEpochSecond(), endTime.toEpochSecond(), TimeUnit.SECONDS)
+                    .build()
+            dataSet = DataSet.builder(dataSource)
+                .add(dataPoint)
+                .build()
+        } catch (ex: Exception) {
+            Toast.makeText(requireContext(), "Вы не могли пройти столько шагов...", Toast.LENGTH_LONG).show()
+            return
+        }
 
         Fitness.getHistoryClient(requireActivity(), GoogleSignIn.getAccountForExtension(requireContext(), fitnessOptions))
             .insertData(dataSet)
@@ -193,6 +201,7 @@ class ActionFragment : Fragment() {
             .deleteData(request)
             .addOnSuccessListener {
                 accessGoogleFit()
+                Toast.makeText(requireContext(), "Data deleted successfully!...", Toast.LENGTH_LONG).show()
                 Log.i(TAG, "Data deleted successfully!")
             }
             .addOnFailureListener { e ->

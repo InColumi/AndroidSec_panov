@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">Lab8</string>
+    <string name="app_name">Google Fit Android API</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">Main Menu</string>
-    <string name="title">STEPS TOTAL</string>
-    <string name="inputHint">Enter steps amount</string>
-    <string name="countTV">Количество шагов:</string>
+    <string name="first_fragment_label">Google Fit Android API</string>
+    <string name="title">Steps</string>
+    <string name="inputHint">Введите кол-во:</string>
+    <string name="countTV">Steps:</string>
     <string name="count">0</string>
-    <string name="countBtn">ADD</string>
-    <string name="deleteCount">CLEAR</string>
+    <string name="countBtn">+</string>
+    <string name="deleteCount">Clear</string>
 </resources>
